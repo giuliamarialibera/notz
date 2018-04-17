@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+
 import java.util.ArrayList;
 
 /**
@@ -16,9 +17,13 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+
    // private String [] myDataset = {"Nota 1"};
 
     private ArrayList<Note> myDataset;
+
+    public class StaggeredGridLayoutManager
+            extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         myDataset = new ArrayList<>();
-        Note note = new Note("pin", "12345");
+        Note pinPalazzo = new Note("pin", "12345");
         myDataset.add(pinPalazzo);
 
-        Note note = new Note("spesa", "comprare il latte");
+        Note spesa = new Note("spesa", "comprare il latte");
         myDataset.add(spesa);
 
         mAdapter = new NotesAdapter(myDataset);
